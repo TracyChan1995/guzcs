@@ -193,8 +193,10 @@ for (i in 1:length(data$id)) {
 
   pa_img <- file.path(tempdir(), 'pa.png')
   sleep_img <- file.path(tempdir(), 'sleep.png')
+  sleep_tip <- file.path('~/Desktop/guzcs/data/sleep.png')
+  pa_tip <- file.path('~/Desktop/guzcs/data/pa.png')
 
-  new_doc <- docx %>%
+  new_doc <- read_docx('~/Desktop/guzcs/data/Doc2.docx') %>%
     body_add_par(value = paste0('姓名: ',data[i,]$name,'                   ', '编号:', data[i,]$id), style = 'Style2') %>%
     body_add_par(value= "体力活动分析与评价表", style = "Style1") %>%
     body_add_img(src = pa_img, height = 3.06, width = 7.39, style = 'Normal') %>%
